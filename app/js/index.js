@@ -3,4 +3,6 @@
 // import './class/lesson3'
 // import './class/lesson4'
 import 'babel-polyfill'
-import './class/lesson6'
+// import './class/lesson6'
+// import './class/lesson8'
+import './class/lesson9'
