@@ -55,3 +55,76 @@
     console.log(map)
 }
 //WeakMap的用法与Map用法的区别和Set与WeakSet的区别是一样的
+
+//Set和Map分别与Array的对比--数据结构的横向对比 增 删 改 查
+//Map和Array
+{
+//增
+    let map=new Map();
+    let arr=new Array();
+    map.set('a',2);
+    arr.push({'a':2});
+    console.log(map,arr);
+//改
+    map.set('a',6);
+    arr.forEach(item=>item.a?item.a=6:'')
+    console.log(map,arr);
+//查
+   let maphas= map.has('a',6);
+    let arrhas=arr.find(item=>item.a)
+    console.log(maphas,arrhas);//true {'a':6}
+//删
+    map.delete('a',6)
+    let index=arr.findIndex(item=>item.a);
+    arr.splice(index,1);
+    console.log(map,arr);//{} []
+}
+//Set和Array
+{
+    //增
+        let set=new Set();
+        let arr=new Array();
+        set.add({a:2});
+        arr.push({a:2});
+        console.log(set,arr);
+    //改
+        set.forEach(item=>item.a?item.a=6:'');
+        arr.forEach(item=>item.a?item.a=6:'');
+        console.log(set,arr);
+    //查
+        let sethas= set.has({a:6});
+        let arrhas=arr.find(item=>item.a)
+        console.log(sethas,arrhas);//true {'a':6}
+    //删
+        set.forEach(item=>item.a?set.delete(item):'');
+        let index=arr.findIndex(item=>item.a);
+        arr.splice(index,1);
+        console.log(set,arr);//{} []
+}
+
+//Map Set Object对比
+{
+    //增
+        let map=new Map();
+        let set=new Set();
+        let object={};
+        map.set('a',2);
+        set.add({a:2});
+        object['a']=2;
+        console.log(map,set,object);
+    //改
+        map.set('a',6);
+        set.forEach(item=>item.a?item.a=6:'');
+        object['a']=6;
+        console.log(map,set,object);
+    //查
+       let maphas= map.has('a',6);
+       let sethas= set.has({a:6});
+       let objhas='a' in object;
+        console.log(maphas,sethas,objhas);//true false true 
+    //删
+        map.delete('a',6)
+        set.forEach(item=>item.a?set.delete(item.a):'');
+       delete object['a'];
+       console.log(map,set,object);
+    }
