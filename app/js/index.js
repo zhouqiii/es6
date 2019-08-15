@@ -5,4 +5,6 @@
 import 'babel-polyfill'
 // import './class/lesson6'
 // import './class/lesson8'
-import './class/lesson9'
+// import './class/lesson9'
+// import './class/lesson10'
+import './class/lesson11'
