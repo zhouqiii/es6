@@ -128,3 +128,5 @@
        delete object['a'];
        console.log(map,set,object);
     }
+
+    //综上，在使用复杂的数据结构时，优先使用map，能使用map不使用数组和Object，考虑唯一性时使用set
