@@ -20,5 +20,5 @@ console.log(A,test);
 import * as lesson from './class/lesson19';//2-import添加文件内所有导出的数据
 console.log(lesson.A,lesson.test);
 
-import './class/lesson19'//3-import直接引入文件
-console.log(lesson19.A)
+import lesson19 from './class/lesson19'//3-import直接引入文件
+console.log(lesson19.A)//123

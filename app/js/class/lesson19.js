@@ -16,7 +16,6 @@
 // }
 
 //3-常用模块化导出方式
-{
     let A=123;
     let test=function(){
         console.log('hello es6');
@@ -31,4 +30,3 @@
         test,
         Hello
     }
-}
