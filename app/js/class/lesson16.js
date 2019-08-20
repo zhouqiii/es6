@@ -5,7 +5,7 @@
 {
     let arrar=['hello',18,'age'];
     let map=arrar[Symbol.iterator]();//es6定义好的Iterator接口
-    console.log(map.next());//{value: "hello", done: false}iterator接口使用时一定有那next方法才可以返回
+    console.log(map.next());//{value: "hello", done: false}iterator接口使用时一定有那next方法才可以返回,而且next()能有顺序
     console.log(map.next());//{value: 18, done: false}
     console.log(map.next());//{value: "age", done: false}
 }
@@ -36,7 +36,7 @@
         }
     }
     for(let key of obj){
-        console.log(key)// 2 5 7 a v 1
+        console.log(key)// 2 5 7 a v 1 
     }
 }
 //Iterator基本用法

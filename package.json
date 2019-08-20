@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/zhouqiii/es6#readme",
   "dependencies": {
+    "babel-plugin-transform-decorators-legacy": "^1.3.5",
     "cookie-parser": "^1.4.4",
     "ejs": "^2.6.2",
     "express": "^4.17.1",

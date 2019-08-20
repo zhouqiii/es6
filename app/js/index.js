@@ -12,4 +12,13 @@ import 'babel-polyfill'
 // import './class/lesson14'
 // import './class/lesson15'
 // import './class/lesson16'
-import './class/lesson17'
+// import './class/lesson17'
+// import './class/lesson18'
+import {A,test} from './class/lesson19';//1-想暴露哪些数据，import添加哪些
+console.log(A,test);
+
+import * as lesson from './class/lesson19';//2-import添加文件内所有导出的数据
+console.log(lesson.A,lesson.test);
+
+import './class/lesson19'//3-import直接引入文件
+console.log(lesson19.A)

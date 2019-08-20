@@ -1,4 +1,5 @@
 //babel配置文件
 {
-    "presets":["es2015"]//npm install babel-preset-es2015
+    "presets":["es2015"],//npm install babel-preset-es2015
+    "plugins":["babel-plugin-transform-decorators-legacy"]
 }
