@@ -1,5 +1,5 @@
 //接口-获取数据
-import $ from 'jqury';//es6-模块引入
+import $ from 'jquery';//es6-模块引入
 
 class Interface{//class es6-定义类
     //getOmit-获取遗漏，参数issue是获取遗漏的数据，是string
