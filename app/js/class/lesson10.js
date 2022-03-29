@@ -1,4 +1,4 @@
-//Symptol-新的数据类型
+//Symbol-新的数据类型
 
 //概念：为了具有唯一标识性,每个Symbol实例都是唯一的，因此将总返回false
 //声明
@@ -45,7 +45,7 @@
     //也就是说Symbol类型未被包含在对象自身的属性之中，所以只有Symbol自身的api来获取
     console.log(Object.getOwnPropertySymbols(obj1))//[Symbol(name1)]单独出现Symbol
     console.log(Reflect.ownKeys(obj1))//["age1", "title1", Symbol(name1)]
-    Object.getOwnPropertySymbols(obj1).forEach(function(item){
+    Object.getOwnPropertySymbols(obj1).forEach( function(item){
         console.log(obj1[item])//一斤代码
     })
 }

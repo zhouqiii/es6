@@ -1,5 +1,46 @@
-// //Promise:是异步编程的解决方案
+// //Promise:是异步编程的解决方案 DOWN
+//为了解决回调地狱
+//有了promise对象，就可以将异步的流程以同步的方式表达出来，避免层层嵌套的回调函数
 
+//1.promsie接受一个函数作为回调，这个函数的两个参数是resolve和reject
+const promise = new Promise((resolve, reject) => {
+    if(/* 成功的状态执行 */true) {
+        resolve(res)//promise对象的状态由pending变为resolved
+    }else{
+        reject(err)//promise对象的状态由pending变为rejected
+    }
+})
+// 2.然后用.then的方法接收resolved状态和rejected状态的回调函数
+promise.then((res) => {
+}, err => {
+})
+// 3.用promise手写一个http request即ajax
+const getHttp = (url) => {
+    const promise = new Promise((resolve, reject) => {
+        const handler = () => {
+            if(this.readyState !== 4) {
+                return
+            }
+            if(this.status === 200) {
+                resolve(this.response)
+            }else{
+                reject(new Error(this.statusText))
+            }
+        }
+        let client = new XMLHttpRequest()
+        client.open('GET', url)
+        client.onreadystatechange = handler
+        client.responseType = "json"
+        client.setRequestHeader('Accept','application/json')
+        client.send()
+    })
+    return promise
+}
+getHttp('/get.json').then((json) => {
+
+}, err => {
+
+})
 // //es5通过回调实现异步
 {
     let ajax=function(callback){

@@ -1,3 +1,12 @@
+//模板字符串
+//标签模板
+var x = 'hello'
+var y = 'Anita'
+function message(iterator, ...values) {
+    console.log(iterator)//['',',i am','']
+    console.log(values)//['hello','Anita']
+}
+var getMessage = message`${x},i am ${y}`
 // 1
 // function test(){
 //     for(var i=1;i<3;i++){var的输出结果为1 2 3

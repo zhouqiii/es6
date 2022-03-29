@@ -1,6 +1,7 @@
 //数据结构 
 
 //Set-会保证没有重复的key，应用于去重，它的方法 .add() .size() .delete() .clear() .has()，但它不会进行字符串的转换 
+// set会接受一个具有iterator接口的数据类型作为参数，用来初始化
 {
     let arr=new Set();
     arr.add(1);
@@ -24,7 +25,7 @@
 
     let arr1=[1,2,3,4,2,3];
     let arr2=new Set(arr1);
-    console.log(arr2);//[1,2,3,4]
+    console.log(arr2);//{1,2,3,4}
 
     let arr3=[1,2,3,4,2,'3'];
     let arr4=new Set(arr3);
