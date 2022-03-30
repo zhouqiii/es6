@@ -43,6 +43,33 @@
 //WeakSet的用法-与Set区别：1.没有size和clear方法，其他方法一样 2.数据类型只能对象 3.不能遍历 4.弱引用
 
 //Map的用法，它的方法  .size() .delete() .clear() 与Set一样，添加是.set（）,遍历方法api与Set也相同，基本遍历方法都可以使用
+//map()的一个好用的方法
+// bad
+function getColor(color) {
+    switch(color){
+        case 'red':
+            return ['big', 'many']
+            break
+        case 'yellow':
+            return ['small', 'change', 'node']
+            break
+        case 'black':
+            return ['all', 'size', 'mafantican']
+            break
+        default:
+            return ['none']
+    }
+}
+function test(val) {
+    return getColor(val) || []
+}
+const color = test('red')
+// better
+const colorList = new Map()
+    .set('red', ['big', 'many'])
+    .set('yellow', ['small', 'change', 'node'])
+    .set('black', ['all', 'size', 'mafantican'])
+const color = colorList.get('red') || []
 
 {   
     let arr=['a','v'];

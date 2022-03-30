@@ -2,6 +2,8 @@
 //为了解决回调地狱
 //有了promise对象，就可以将异步的流程以同步的方式表达出来，避免层层嵌套的回调函数
 
+const { request } = require("express")
+
 //1.promsie接受一个函数作为回调，这个函数的两个参数是resolve和reject
 const promise = new Promise((resolve, reject) => {
     if(/* 成功的状态执行 */true) {
@@ -140,6 +142,73 @@ getHttp('/get.json').then((json) => {
         loadImg('http://img1.qunarzz.com/sight/p0/1806/d8/d8aefa62fe6a7f12a3.img.jpg_250x250_6f26eb7e.jpg'),
         loadImg('http://img1.qunarzz.com/sight/p0/1809/6b/6b900de5e5ac7239a3.img.jpg_250x250_ca8032c9.jpg')
     ]).then(showImgs)
+}
+// promsie.all经常使用的一个场景还有：
+// 当页面初始需要发送多个new promise()封装的request，但是这些request之间并没有关系时
+// bad
+this.$nextTick(() => {
+    this.requestList1()
+    this.requestList2()
+    this.requestList3()
+})
+function requestList1() {
+    request1().then((res) => {
+        this.data1 = res
+    })
+}
+function requestList2() {
+    request2().then((res) => {
+        this.data2 = res
+    })
+}
+function requestList3() {
+    request3().then((res) => {
+        this.data3 = res
+    })
+}
+// good
+this.$nextTick(() => {
+    this.requestList()
+})
+function requestList() {
+    Promise.all([
+        request1(),
+        request2(),
+        request3()
+    ]).then((res) => {
+        this.data1 = res[0]
+        this.data2 = res[1]
+        this.data3 = res[2]
+    })
+}
+// 或者使用async //good
+this.$nextTick(() => {
+    this.requestList()
+})
+async function requestList() {
+   const data1 = request1()
+   const data2 = request2()
+   const data3 = request3()
+   await data1;
+   await data2;
+   await data3;
+   return [data1,data2,data3]
+}
+// ps:有时候异步操作使用promise代码比较复杂，还可以使用async简洁化
+// bad
+function getRequest() {
+    request1()
+        .then((res1) => {
+            return request2(res1)
+        }).then((res2) => {
+            return request3(res2)
+        })
+}
+// good
+function getRequest() {
+    const res1 = await request1()
+    const res2 = await request2(res1)
+    return request3(res2)
 }
 //Promise的基本用法-Promise.race
 {
