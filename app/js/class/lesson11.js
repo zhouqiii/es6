@@ -82,6 +82,12 @@ const color = colorList.get('red') || []
     let map=new Map([['a',1],['b',2]]);//必须是key value的对应数组
     console.log(map)
 }
+// Map和Object的区别
+/*
+    1.map的键值可以是任何类型，但是Object的键值只能是字符串或者symbol
+    2.map有多少键值对可以直接用map.size得到，但是object有多少属性只能通过手动计算
+*/
+
 //WeakMap的用法与Map用法的区别和Set与WeakSet的区别是一样的
 
 //Set和Map分别与Array的对比--数据结构的横向对比 增 删 改 查

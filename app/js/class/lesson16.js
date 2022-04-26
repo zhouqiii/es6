@@ -68,3 +68,27 @@ for(let item of arr.values()){
 for(let item of arr.entries()) {
     console.log(item)// [0, { name: 'zhou', age: 18 }] [1, { name: 'zhang', age: 18 }] 
 }
+// for...of和for...in以及forEach的区别
+const obj = {
+    name: 'ming',
+    age: 18
+}
+const arr = ['ming', 'lan', 'hua']
+// forEach一般用来遍历数组
+//for...in一般用来遍历对象，且遍历的结果是key
+for(key in obj) {
+    console.log(key)// name age
+}
+//for...of一般用来遍历数组，不能直接遍历对象会报错，遍历对象可以和Object.keys(obj)等结合使用
+for(value of arr) {
+    console.log(value)// ming lan hua
+}
+for(value of Object.keys(obj)) {
+    console.log(value)// name age
+}
+for(value of Object.entries(obj)) {
+    console.log(value)// ['name', 'ming'] ['age', 18]
+}
+for([key,value] of Object.entries(obj)) {
+    console.log(value)// ming 18
+}

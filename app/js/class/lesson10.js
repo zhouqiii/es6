@@ -49,3 +49,10 @@
         console.log(obj1[item])//一斤代码
     })
 }
+let obj = {
+    name: 'ming'   
+}
+let age = new Symbol()
+obj[age] = 18
+let objKeys = Reflect.ownKeys(obj)
+console.log(objKeys)

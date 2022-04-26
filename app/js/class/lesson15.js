@@ -7,7 +7,7 @@ const { request } = require("express")
 //1.promsie接受一个函数作为回调，这个函数的两个参数是resolve和reject
 const promise = new Promise((resolve, reject) => {
     if(/* 成功的状态执行 */true) {
-        resolve(res)//promise对象的状态由pending变为resolved
+        resolve(res)//promise对象的状态由pending变为fulfilled
     }else{
         reject(err)//promise对象的状态由pending变为rejected
     }

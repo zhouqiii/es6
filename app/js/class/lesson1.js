@@ -1,5 +1,14 @@
 //模板字符串
-//标签模板
+//标签模板-标签模板的意思就是一个函数直接跟一个模板字符串作为参数
+//那么该函数的第一个参数就是把模板字符串里的所有变量替换形成的一个数组，第二个第三个以此类推的参数就是该模板字符串里面的变量
+//模板标签的使用还有一个API即String.raw转义模板字符串: 它用来获取一个模板字符串的原始字符串;与原始模板字符串的区别是不会转义\n,\t这些
+// example
+const peo = 'ming'
+let strNew = `hello,${peo}\n i love you`
+console.log(strNew)// hello,ming
+                   //i love you
+console.log(String.raw`hello,${peo}\n i love you`)//hello,ming\n i love you
+//
 var x = 'hello'
 var y = 'Anita'
 function message(iterator, ...values) {
